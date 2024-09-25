@@ -24,13 +24,13 @@ int main(){
     printf("and i the ending your adresse emaile :\n ");
     scanf("%s",adresse_email);
 
-    printf("your full name is : %s %s",name,prenom);
+    printf("your full name is : %s %s \n",name,prenom);
 
-    printf("your age is : %d",age);
+    printf("your age is : %d \n",age);
 
-    printf("your gendre : %s",sexe);
+    printf("your gendre : %s \n",sexe);
     
-    printf("your email : %s",adresse_email);
+    printf("your email : %s\n",adresse_email);
 
 
     return 0;
