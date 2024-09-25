@@ -13,6 +13,6 @@ int main (){
  
  
 
-printf("%d %d %d %d",d , c, b , a);
+printf("%d%d%d%d",d , c, b , a);
 
 }
