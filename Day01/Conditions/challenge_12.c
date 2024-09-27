@@ -21,10 +21,38 @@ int main(){
      scanf("%d",&ss2);
      
     
-    if (hh>hh2 && mm>mm2  && ss>ss2)
-         printf("Le premier instant vient avant le deuxième");
-    else if (hh<hh2 && mm<mm2  && ss<ss2)
-         printf("Le deuxième instant vient avant le premier");
+    if (hh>=hh2 ){
+          
+        if (mm>mm2 ||  mm<=mm2){
+         if ( ss>ss2)
+             printf("Le premier instant vient avant le deuxième");
+            
+        }
+        
+    }
+         
+         
+         
+         
+         
+    if (hh<=hh2 &&   ss<ss2)
+    {
+          
+        if ( mm>mm2 ||  mm<=mm2){
+            
+              
+         if (ss<ss2)
+             printf("Le premier instant vient avant le deuxième");
+            
+                    }
+        
+    }
+    
+         
+         
+         
+         
+         
     else 
          printf("Il s'agit du même instant");
 
