@@ -1,17 +1,14 @@
 #include <stdio.h>
-
-int main  (){
-
-int i ,n;
-printf("entre a nombre :");
-scanf("%d",&n);
-
-for(i=n-1;i >= 1;i--)
+#include <math.h>
+int main()
 {
-    n = n + i ;
-
-}
-
-printf (" la somme des premiers nombres naturels  = %d",n);
-    return 0;
+    int n;
+    printf("entre a nombre :");
+    scanf("%d", &n);
+    for (int i = 0; i <= 9; i++)
+        if (n % 2 != 0)
+        {
+            if (i % 2 != 0)
+                printf("%d", i);
+        }
 }
