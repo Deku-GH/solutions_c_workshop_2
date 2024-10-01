@@ -23,6 +23,7 @@ void ajoute()
     scanf("%d", &x);
     for (int i = 0; i < x; i++)
     {
+        printf("===============================\n");
         printf("le livre numero %d \n", i + 1);
         printf("entre le titre :\n");
         scanf("%s", &titre[i]);
@@ -90,6 +91,41 @@ void la_Quantite()
             printf("no");
     }
 }
+void delete()
+{
+    char post[60];
+    printf("entre le titre de livre \n");
+
+    scanf("%s", &post);
+    for (int i = 0; i < count; i++)
+    {
+        if (strcmp(titre[i], post))
+        {
+            for (int j = i + 1; j < count - 1; j++)
+            {
+                strcpy(titre[j], titre[j + 1]);
+                strcpy(auteur[j], auteur[j + 1]);
+                prix[j] = prix[j + 1];
+                Quantite[j] = Quantite[j + 1];
+                count--;
+            }
+        }
+    }
+}
+void totale()
+{
+    printf(" le nombre totale de livre: %d \n", count);
+    for (int i = 0; i < count; i++)
+
+    {
+
+        printf("===============================\n");
+        printf("le livre numero %d \n", i + 1);
+        printf(" titre %s \n", titre[i]);
+        printf(" Qauntite %d \n", Quantite[i]);
+        printf("===============================\n");
+    }
+}
 int main()
 {
     int choise, actions, x;
@@ -128,6 +164,15 @@ int main()
             la_Quantite();
         }
         break;
+        case 5:
+        {
+            delete ();
+        }
+        break;
+
+        case 6:
+            totale();
+            break;
         default:
             break;
             i++;
