@@ -67,10 +67,7 @@ void ajoute()
         printf("id de reservation : %d\n", reservt.id[i]);
         printf("==========================================\n");
         count++;
-        return ;
     }
-    return ;
-    
 }
 void modev_suprime()
 
@@ -127,7 +124,7 @@ void modev_suprime()
                 {
                     printf("entrez un nouveau age\n");
                     scanf("%d", &nouveau.nouveau_age);
-                    reservt.age[i]= nouveau.nouveau_age;
+                    reservt.age[i] = nouveau.nouveau_age;
                 }
                 break;
 
@@ -135,7 +132,7 @@ void modev_suprime()
                 {
                     printf("entrez un nouveau telephone \n");
                     scanf("%s", &nouveau.nouveau_telephone);
-                    reservt.telephone[i]= nouveau.nouveau_telephone;
+                    reservt.telephone[i] = nouveau.nouveau_telephone;
                 }
                 break;
                 case 5:
@@ -156,7 +153,41 @@ void modev_suprime()
     }
     else if (M_s == 2)
     {
-        /* code */
+        printf("Entrez l'ID pour effacer la réservation:\n");
+        scanf("%d", &ID);
+        for (int s = 0; s < count; s++)
+        {
+            if (reservt.id[s] == ID)
+            {
+                for (int t = t + 1; t < count - 1; t++)
+                {
+                    strcpy(reservt.Nome[s], reservt.Nome[t]);
+                    strcpy(reservt.prenome[s], reservt.prenome[t]);
+                    strcpy(reservt.date[s], reservt.date[t]);
+                    strcpy(reservt.statu[s], reservt.statu[t]);
+                    reservt.age[s] = reservt.age[t];
+                    reservt.telephone[s] = reservt.telephone[t];
+                    reservt.id[s] = reservt.id[t];
+                }
+            }
+        }
+    }
+}
+
+void affiche_détails()
+{
+    for (int a = 0; a < count; a++)
+
+    {
+
+        printf("la reservation : %d\n", count + 1);
+        printf(" nom prenom %s ", reservt.Nome[a]);
+        printf("%s, :\n", reservt.prenome[a]);
+        printf("%d \n", reservt.age[a]);
+        printf("%d \n", reservt.telephone[a]);
+        printf("Statut de réservation : %s\n", reservt.statu[a]);
+        printf("%d", reservt.id[a]);
+        printf("date :%s \n", reservt.date[a]);
     }
 }
 
@@ -184,9 +215,13 @@ int main()
         case 1:
             ajoute();
             break;
+        case 2:
+            modev_suprime();
+            break;
+        default:
+            break;
         }
 
-        
     } while (i < choise);
     i++;
 }
