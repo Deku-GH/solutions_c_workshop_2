@@ -3,13 +3,17 @@
 #include <stdlib.h>
 #define max_reservation 100
 
-char Nome[max_reservation][50];
-char prenome[max_reservation][50];
-int age[max_reservation];
-int telephone[max_reservation];
-char statu[max_reservation][50];
-int id[max_reservation];
-char date[max_reservation][50];
+struct reservation
+{
+    char Nome[max_reservation][50];
+    char prenome[max_reservation][50];
+    int age[max_reservation];
+    int telephone[max_reservation];
+    char statu[max_reservation][50];
+    int id[max_reservation];
+    char date[max_reservation][50];
+};
+struct reservation reservt;
 
 void ajoute()
 {
@@ -19,40 +23,47 @@ void ajoute()
     scanf("%d", &x);
     for (int i = 0; i < x; i++)
     {
-        printf("entez le nome \n");
-        scanf("%s", &Nome[i]);
-        printf("entez prenome \n");
-        scanf("%s", &prenome[i]);
-        printf("entez age \n");
-        scanf("%d", &age[i]);
-        printf("entez le telephne \n");
-        scanf("%d", &telephone[i]);
-        printf("entez le nome \n");
+        printf("==========================================\n");
+        printf("Entrez le nom :\n");
+        scanf("%s", &reservt.Nome[i]);
+        printf("Entrez le prenom :\n");
+        scanf("%s", &reservt.prenome[i]);
+        printf("Entrez l'age :\n");
+        scanf("%d", &reservt.age[i]);
+        printf("Entrez le telephne : \n");
+        scanf("%d", &reservt.telephone[i]);
+        printf("Statut de réservation :\n");
+        printf("1:valider\n");
+        printf("2:raporte\n");
+        printf("3:annule\n");
+        printf("4:trait\n");
         scanf("%d", &st);
         switch (st)
         {
         case 1:
-            strcpy(statu[i], "valider");
+            strcpy(reservt.statu[i], "valider");
             break;
         case 2:
-            strcpy(statu[i], "raporte");
+            strcpy(reservt.statu[i], "raporte");
             break;
         case 3:
-            strcpy(statu[i], "annule");
+            strcpy(reservt.statu[i], "annule");
             break;
         case 4:
-            strcpy(statu[i], "trait");
+            strcpy(reservt.statu[i], "trait");
             break;
         default:
             break;
         }
 
-        id[i] = rand();
+        reservt.id[i] = rand();
 
-        printf("entrez la date :");
+        printf("Entrez la date de réservation :");
         scanf("%s", &annee);
 
-        strcpy(date[i], annee);
+        strcpy(reservt.date[i], annee);
+        printf("id de reservation : %d\n", reservt.id[i]);
+        printf("==========================================\n");
     }
 }
 
