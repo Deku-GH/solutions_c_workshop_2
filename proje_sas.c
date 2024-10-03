@@ -67,7 +67,10 @@ void ajoute()
         printf("id de reservation : %d\n", reservt.id[i]);
         printf("==========================================\n");
         count++;
+        return ;
     }
+    return ;
+    
 }
 void modev_suprime()
 
@@ -78,7 +81,7 @@ void modev_suprime()
         char nouveau_prenom[20];
         int nouveau_age;
         int nouveau_telephone;
-        char nouveau_date;
+        char nouveau_date[20];
     };
     struct nouveau_modifier nouveau;
 
@@ -124,7 +127,7 @@ void modev_suprime()
                 {
                     printf("entrez un nouveau age\n");
                     scanf("%d", &nouveau.nouveau_age);
-                    strcpy(reservt.age[i], nouveau.nouveau_age);
+                    reservt.age[i]= nouveau.nouveau_age;
                 }
                 break;
 
@@ -132,14 +135,14 @@ void modev_suprime()
                 {
                     printf("entrez un nouveau telephone \n");
                     scanf("%s", &nouveau.nouveau_telephone);
-                    strcpy(reservt.Nome[i], nouveau.nouveau_telephone);
+                    reservt.telephone[i]= nouveau.nouveau_telephone;
                 }
                 break;
                 case 5:
                 {
                     printf("entrez un nouveau date \n");
                     scanf("%s", &nouveau.nouveau_date);
-                    strcpy(reservt.Nome[i], nouveau.nouveau_date);
+                    strcpy(reservt.date[i], nouveau.nouveau_date);
                 }
                 break;
 
@@ -149,18 +152,12 @@ void modev_suprime()
             }
             else
                 printf("no");
-
-
-
         }
-
-        
     }
     else if (M_s == 2)
-        {
-            /* code */
-        }
-
+    {
+        /* code */
+    }
 }
 
 void affiche_choix()
@@ -189,6 +186,7 @@ int main()
             break;
         }
 
-        i++;
+        
     } while (i < choise);
+    i++;
 }
