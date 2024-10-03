@@ -14,16 +14,18 @@ struct reservation
     char date[max_reservation][50];
 };
 struct reservation reservt;
+int count;
 
 void ajoute()
 {
     int x, st;
     char annee[20];
-    printf("Combien de rendez-vous allez-vous prendre ?");
+    printf("Combien de rendez-vous allez-vous prendre ?\n");
     scanf("%d", &x);
     for (int i = 0; i < x; i++)
     {
         printf("==========================================\n");
+        printf("la reservation : %d\n", count + 1);
         printf("Entrez le nom :\n");
         scanf("%s", &reservt.Nome[i]);
         printf("Entrez le prenom :\n");
@@ -64,7 +66,101 @@ void ajoute()
         strcpy(reservt.date[i], annee);
         printf("id de reservation : %d\n", reservt.id[i]);
         printf("==========================================\n");
+        count++;
     }
+}
+void modev_suprime()
+
+{
+    struct nouveau_modifier
+    {
+        char nouveau_nom[20];
+        char nouveau_prenom[20];
+        int nouveau_age;
+        int nouveau_telephone;
+        char nouveau_date;
+    };
+    struct nouveau_modifier nouveau;
+
+    int M_s, ID, ch;
+    printf("==========================================\n");
+    printf("Que voulez-vous ?\n");
+    printf("1:modifier Une réservation\n");
+    printf("2:supprimer Une réservation\n");
+    scanf("%d", &M_s);
+
+    if (M_s == 1)
+    {
+        printf("entrez id:\n");
+        scanf("%d", &ID);
+        for (int i = 0; i < count; i++)
+        {
+            if (ID == reservt.id[i])
+            {
+                printf("Que voulez-vous  changer ? \n");
+                printf("1:nom \n");
+                printf("2:prenom \n");
+                printf("3:age \n");
+                printf("4:telephon \n");
+                printf("5:date \n");
+                scanf("%d", &ch);
+                switch (ch)
+                {
+                case 1:
+                {
+                    printf("entrez un nouveau nom \n");
+                    scanf("%s", &nouveau.nouveau_nom);
+                    strcpy(reservt.Nome[i], nouveau.nouveau_nom);
+                }
+                break;
+                case 2:
+                {
+                    printf("entrez un nouveau prenom \n");
+                    scanf("%s", &nouveau.nouveau_prenom);
+                    strcpy(reservt.prenome[i], nouveau.nouveau_prenom);
+                }
+                break;
+                case 3:
+                {
+                    printf("entrez un nouveau age\n");
+                    scanf("%d", &nouveau.nouveau_age);
+                    strcpy(reservt.age[i], nouveau.nouveau_age);
+                }
+                break;
+
+                case 4:
+                {
+                    printf("entrez un nouveau telephone \n");
+                    scanf("%s", &nouveau.nouveau_telephone);
+                    strcpy(reservt.Nome[i], nouveau.nouveau_telephone);
+                }
+                break;
+                case 5:
+                {
+                    printf("entrez un nouveau date \n");
+                    scanf("%s", &nouveau.nouveau_date);
+                    strcpy(reservt.Nome[i], nouveau.nouveau_date);
+                }
+                break;
+
+                default:
+                    break;
+                }
+            }
+            else
+                printf("no");
+
+
+
+        }
+
+        
+    }
+    else if (M_s == 2)
+        {
+            /* code */
+        }
+
 }
 
 void affiche_choix()
