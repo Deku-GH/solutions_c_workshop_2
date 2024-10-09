@@ -122,6 +122,8 @@ void totale()
         printf("===============================\n");
         printf("le livre numero %d \n", i + 1);
         printf(" titre %s \n", titre[i]);
+        printf("auteur: %s",auteur[i]);
+        printf("le prix : %d \n",prix[i]);
         printf(" Qauntite %d \n", Quantite[i]);
         printf("===============================\n");
     }
@@ -173,9 +175,9 @@ int main()
         case 6:
             totale();
             break;
-        default:
+        default:printf("havr a cood day");
             break;
             i++;
         }
-    } while (i < choise);
+    } while (i < choise );
 }
